@@ -1,0 +1,16 @@
+div.form {
+    width: 400px;
+    margin: 0 auto;
+    border: 1px solid;
+    padding: 30px;
+    border-radius: 3%;
+    position: relative;
+    margin-top: 50px;
+}
+
+form > :last-child{
+    text-align: center;
+}
+
+
+

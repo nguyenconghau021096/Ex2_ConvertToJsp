@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>ServlerExercise</display-name>
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+  	<servlet-name>Login</servlet-name>
+  	<servlet-class>com.nguyenconghau.HelloServlet</servlet-class>
+  	<load-on-startup>0</load-on-startup>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>Register</servlet-name>
+  	<servlet-class>com.nguyenconghau.RegisterServlet</servlet-class>
+  	<load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet>
+  	<servlet-name>List-user</servlet-name>
+  	<servlet-class>com.nguyenconghau.ListUserServlet</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  
+  
+  <servlet-mapping>
+  	<servlet-name>Login</servlet-name>
+  	<url-pattern>/login</url-pattern>
+  	<url-pattern>/dangnhap</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>Register</servlet-name>
+  	<url-pattern>/register</url-pattern>
+  	<url-pattern>/dangky</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>List-user</servlet-name>
+  	<url-pattern>/list-user</url-pattern>
+  	<url-pattern>/danhsach</url-pattern>
+  </servlet-mapping>
+</web-app>
