@@ -1,6 +1,7 @@
 <%@page import="javax.security.auth.message.callback.PrivateKeyCallback.Request"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,6 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 </head>
 <body>
-    
         <div>
             <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
@@ -37,29 +37,40 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                	<% int index = 0; %>
+                	<c:forEach var="user" items="${listUser}">
+                	<tr>
+                        <th scope="row"><%=index %></th>
+                        <td>${user.username}</td>
+                        <td>${user.email}</td>
+                        <td>${user.gender}</td>
+                    </tr>
+                	<% index++; %>
+                		
+                	</c:forEach>
+                	
+                    <!-- <tr>
                         <th scope="row">1</th>
-                        <td><%=pageContext.getServletConfig().getInitParameter("aaa") %></td>
-                        <td>Tran Van B</td>
-                        <td>Nguyen Thi C</td>
+                        <td>Nguyen Van A</td>
+                        <td>nguyenvana@gmail.com</td>
+                        <td>Man</td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
-                        <td>nguyenvana@gmail.com</td>
+                        <td>Tran Van B</td>
                         <td>tanvanb@gmail.com</td>
-                        <td>nguyenthic@gmail.com</td>
+                        <td>Man</td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
-                        <td>Men</td>
-                        <td>Men</td>
+                        <td>Le Thi C</td>
+                        <td>lethic@gmail.com</td>
                         <td>Women</td>
                     </tr>
+                     -->
                 </tbody>
             </table>
         </div>
-        
-              
 	
 </body>
 </html>
