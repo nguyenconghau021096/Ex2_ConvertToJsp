@@ -27,27 +27,27 @@
     </div>
 		
 	<div class="form">
-		<form>
+		<form method="post" action="/ServlerExercise/list-user">
 			<div class="form-group">
 				<label for="username">Username:</label>
-				<input type="text" class="form-control" id="username">
+				<input type="text" class="form-control" name="username">
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="text" class="form-control" id="email">
+                <input type="text" class="form-control" name="email">
             </div>
 			<div class="form-group">
 				<label for="pwd">Password:</label>
-				<input type="password" class="form-control" id="pwd">
+				<input type="password" class="form-control" name="pwd">
             </div>
             <div class="form-group">
                 <label for="pwd">Confirm Password:</label>
-                <input type="password" class="form-control" id="pwd">
+                <input type="password" class="form-control" name="pwd1">
             </div>
             <div class="radio">
-                <label><input type="radio" name="optradio" checked>Men</label>
-                <label><input type="radio" name="optradio" checked>Women</label>
-                <label><input type="radio" name="optradio" checked>Other</label>
+                <label><input type="radio" name="gender" checked value="Nam">Men</label>
+                <label><input type="radio" name="gender" checked value="Nữ">Women</label>
+                <label><input type="radio" name="gender" checked value="Khác">Other</label>
             </div>
 			<div>
 				<button type="submit" class="btn btn-default">Register</button>

@@ -10,17 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 
 public class HelloServlet extends HttpServlet{
 	@Override
-	public void init() throws ServletException {
-		System.out.println("HelloServlet được tạo");
-	}
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("Phương thức của service: "+req.getMethod());
-		String url = req.getServerName()+":"+req.getServerPort()+req.getContextPath()+req.getServletPath();
-		System.out.println(url);
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("utf8");
+		resp.setContentType("text/html;charset=utf-8");
 		
-		RequestDispatcher dispatchet = req.getRequestDispatcher("/login.jsp");
-		dispatchet.forward(req, resp);
+		System.out.println(req.getParameter("username"));
+		System.out.println(req.getParameter("pwd"));
 		
+		
+		
+		RequestDispatcher rq = req.getRequestDispatcher("/hello.jsp");
+		rq.forward(req, resp);
 	}
 }

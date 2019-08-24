@@ -34,6 +34,7 @@
                         <th scope="col">Username</th>
                         <th scope="col">Email</th>
                         <th scope="col">Gender</th>
+                        <th scope="col">Password</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,6 +45,7 @@
                         <td>${user.username}</td>
                         <td>${user.email}</td>
                         <td>${user.gender}</td>
+                        <td>${user.password}</td>
                     </tr>
                 	<% index++; %>
                 		

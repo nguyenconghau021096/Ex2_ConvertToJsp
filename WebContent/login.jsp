@@ -9,6 +9,11 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 </head>
+<script>
+	function dangky(){
+		window.location.href = "/ServlerExercise/register";
+	}
+</script>
 <body>
 
 	<div>
@@ -28,22 +33,24 @@
 	</div>
 
 	<div class="form">
-		<form>
+		<form method="post" action="/ServlerExercise/hello">
 			<div class="form-group">
 				<label for="username">Username:</label>
-				<input type="text" class="form-control" id="username">
+				<input type="text" class="form-control" name="username">
 			</div>
 			<div class="form-group">
 				<label for="pwd">Password:</label>
-				<input type="password" class="form-control" id="pwd">
+				<input type="password" class="form-control" name="pwd">
 			</div>
 			<div class="checkbox">
 				<label><input type="checkbox"> Remember me</label>
 			</div>
 			<div>
 				<button type="submit" class="btn btn-default">Submit</button>
-				<button type="submit" class="btn btn-default">Create account</button>
+				<input onclick="dangky()" type="button" value="Create account"  class="btn btn-default">
 			</div>
+			
+			
 			
 		</form>
 	</div>

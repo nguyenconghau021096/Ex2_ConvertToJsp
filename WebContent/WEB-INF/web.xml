@@ -6,7 +6,7 @@
   </welcome-file-list>
   <servlet>
   	<servlet-name>Login</servlet-name>
-  	<servlet-class>com.nguyenconghau.HelloServlet</servlet-class>
+  	<servlet-class>com.nguyenconghau.LoginServlet</servlet-class>
   	<load-on-startup>0</load-on-startup>
   </servlet>
   
@@ -15,10 +15,39 @@
   	<servlet-class>com.nguyenconghau.RegisterServlet</servlet-class>
   	<load-on-startup>2</load-on-startup>
   </servlet>
+  
   <servlet>
   	<servlet-name>List-user</servlet-name>
   	<servlet-class>com.nguyenconghau.ListUserServlet</servlet-class>
   	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>TestServlet</servlet-name>
+  	<servlet-class>com.nguyenconghau.testServlet</servlet-class>
+  	<init-param>
+  		<param-name>name</param-name>
+  		<param-value>Nguyễn Công Hậu</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>age</param-name>
+  		<param-value>23</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>gender</param-name>
+  		<param-value>Nam</param-value>
+  	</init-param>
+  	<load-on-startup>3</load-on-startup>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>HandleError</servlet-name>
+  	<servlet-class>com.nguyenconghau.HandleError</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>HelloServlet</servlet-name>
+  	<servlet-class>com.nguyenconghau.HelloServlet</servlet-class>
   </servlet>
   
   
@@ -40,4 +69,29 @@
   	<url-pattern>/list-user</url-pattern>
   	<url-pattern>/danhsach</url-pattern>
   </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>TestServlet</servlet-name>
+  	<url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>HandleError</servlet-name>
+  	<url-pattern>/error</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>HelloServlet</servlet-name>
+  	<url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  
+  
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/error</location>
+  </error-page>
+  <error-page>
+  	<exception-type>java.io.IOException</exception-type>
+  	<location>/error</location>
+  </error-page>
 </web-app>
