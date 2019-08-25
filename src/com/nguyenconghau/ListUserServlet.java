@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import JavaBean.UserBean;
 
@@ -34,9 +35,26 @@ public class ListUserServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {	
 		
 		req.setCharacterEncoding("utf-8");
-		req.setAttribute("listUser", listUser);
-		RequestDispatcher dispatchet = req.getRequestDispatcher("/list-user.jsp");
-		dispatchet.forward(req, resp);
+		
+		String name = "";
+		HttpSession httpSession = req.getSession();
+		
+		Object objName = httpSession.getAttribute("username");
+		
+		if (objName != null) {
+			name = (String) objName;
+			req.setAttribute("listUser", listUser);
+			req.setAttribute("name", name);
+			req.setAttribute("WebSiteName",getServletConfig().getInitParameter("WebSiteName"));
+			
+			RequestDispatcher dispatchet = req.getRequestDispatcher("/list-user.jsp");
+			dispatchet.forward(req, resp);
+		} else {
+			resp.sendRedirect("/ServlerExercise/login");
+		}
+		
+		
+		
 	}
 	
 	@Override

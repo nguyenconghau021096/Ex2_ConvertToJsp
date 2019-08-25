@@ -33,14 +33,14 @@
 	</div>
 
 	<div class="form">
-		<form method="post" action="/ServlerExercise/hello">
+		<form method="post" action="/ServlerExercise/login">
 			<div class="form-group">
 				<label for="username">Username:</label>
 				<input type="text" class="form-control" name="username">
 			</div>
 			<div class="form-group">
 				<label for="pwd">Password:</label>
-				<input type="password" class="form-control" name="pwd">
+				<input type="password" class="form-control" name="password">
 			</div>
 			<div class="checkbox">
 				<label><input type="checkbox"> Remember me</label>

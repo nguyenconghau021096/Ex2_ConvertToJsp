@@ -7,7 +7,7 @@
 <head>
 	<meta charset="utf-8">		
 	<title></title>
-	<<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
             <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="#">WebSiteName</a>
+                        <a class="navbar-brand" href="#">${WebSiteName}</a>
                     </div>
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
@@ -26,6 +26,9 @@
                 </div>
             </nav>
         </div>
+        <h1>User: ${name}</h1>
+        <a href="/ServlerExercise/logout">Đăng xuất</a>
+        <a href="/ServlerExercise/changepass">Đổi mật khẩu</a>
         <div>
             <table class="table table-hover">
                 <thead>

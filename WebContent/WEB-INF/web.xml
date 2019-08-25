@@ -4,23 +4,47 @@
   <welcome-file-list>
     <welcome-file></welcome-file>
   </welcome-file-list>
+  
+  
   <servlet>
   	<servlet-name>Login</servlet-name>
   	<servlet-class>com.nguyenconghau.LoginServlet</servlet-class>
   	<load-on-startup>0</load-on-startup>
   </servlet>
+  <servlet-mapping>
+  	<servlet-name>Login</servlet-name>
+  	<url-pattern>/login</url-pattern>
+  	<url-pattern>/dangnhap</url-pattern>
+  </servlet-mapping>
+  
   
   <servlet>
   	<servlet-name>Register</servlet-name>
   	<servlet-class>com.nguyenconghau.RegisterServlet</servlet-class>
   	<load-on-startup>2</load-on-startup>
   </servlet>
+  <servlet-mapping>
+  	<servlet-name>Register</servlet-name>
+  	<url-pattern>/register</url-pattern>
+  	<url-pattern>/dangky</url-pattern>
+  </servlet-mapping>
+  
   
   <servlet>
   	<servlet-name>List-user</servlet-name>
   	<servlet-class>com.nguyenconghau.ListUserServlet</servlet-class>
+  	<init-param>
+  		<param-name>WebSiteName</param-name>
+  		<param-value>Exercise NguyenCongHau</param-value>
+  	</init-param>
   	<load-on-startup>1</load-on-startup>
   </servlet>
+  <servlet-mapping>
+  	<servlet-name>List-user</servlet-name>
+  	<url-pattern>/list-user</url-pattern>
+  	<url-pattern>/danhsach</url-pattern>
+  </servlet-mapping>
+  
   
   <servlet>
   	<servlet-name>TestServlet</servlet-name>
@@ -39,51 +63,52 @@
   	</init-param>
   	<load-on-startup>3</load-on-startup>
   </servlet>
-  
-  <servlet>
-  	<servlet-name>HandleError</servlet-name>
-  	<servlet-class>com.nguyenconghau.HandleError</servlet-class>
-  </servlet>
-  
-  <servlet>
-  	<servlet-name>HelloServlet</servlet-name>
-  	<servlet-class>com.nguyenconghau.HelloServlet</servlet-class>
-  </servlet>
-  
-  
-  
-  <servlet-mapping>
-  	<servlet-name>Login</servlet-name>
-  	<url-pattern>/login</url-pattern>
-  	<url-pattern>/dangnhap</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-  	<servlet-name>Register</servlet-name>
-  	<url-pattern>/register</url-pattern>
-  	<url-pattern>/dangky</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-  	<servlet-name>List-user</servlet-name>
-  	<url-pattern>/list-user</url-pattern>
-  	<url-pattern>/danhsach</url-pattern>
-  </servlet-mapping>
-  
   <servlet-mapping>
   	<servlet-name>TestServlet</servlet-name>
   	<url-pattern>/test</url-pattern>
   </servlet-mapping>
   
+  
+  <servlet>
+  	<servlet-name>HandleError</servlet-name>
+  	<servlet-class>com.nguyenconghau.HandleError</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>HandleError</servlet-name>
   	<url-pattern>/error</url-pattern>
   </servlet-mapping>
   
-  <servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>HelloServlet</servlet-name>
+  	<servlet-class>com.nguyenconghau.HelloServlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
   	<servlet-name>HelloServlet</servlet-name>
   	<url-pattern>/hello</url-pattern>
   </servlet-mapping>
+  
+  
+  
+  <servlet>
+  	<servlet-name>Logout</servlet-name>
+  	<servlet-class>com.nguyenconghau.Logout</servlet-class>
+  </servlet>
+   <servlet-mapping>
+  	<servlet-name>Logout</servlet-name>
+  	<url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>ChangePassword</servlet-name>
+  	<servlet-class>com.nguyenconghau.ChangePassword</servlet-class>
+  </servlet>
+   <servlet-mapping>
+  	<servlet-name>ChangePassword</servlet-name>
+  	<url-pattern>/changepass</url-pattern>
+  </servlet-mapping>
+  
   
   
   <error-page>
@@ -94,4 +119,8 @@
   	<exception-type>java.io.IOException</exception-type>
   	<location>/error</location>
   </error-page>
+  
+  <session-config>
+  	<session-timeout>1</session-timeout>
+  </session-config>
 </web-app>
