@@ -3,19 +3,19 @@ package JavaBean;
 import java.io.Serializable;
 
 public class UserBean implements Serializable{
-	private String username = null;
-	private String email = null;
-	private String gender = null;
-	private String password = null;
+	private String username;
+	private String email;
+	private int gender;
+	private String password;
 	
 	
 	
 	public UserBean() {
-		super();
+		
 	}
 	
 	
-	public UserBean(String username, String email, String gender,String password) {
+	public UserBean(String username, String email, int gender,String password) {
 		super();
 		this.username = username;
 		this.email = email;
@@ -49,10 +49,10 @@ public class UserBean implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getGender() {
+	public int getGender() {
 		return gender;
 	}
-	public void setGender(String gender) {
+	public void setGender(int gender) {
 		this.gender = gender;
 	}
 	

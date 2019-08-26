@@ -26,7 +26,6 @@
   <servlet-mapping>
   	<servlet-name>Register</servlet-name>
   	<url-pattern>/register</url-pattern>
-  	<url-pattern>/dangky</url-pattern>
   </servlet-mapping>
   
   
@@ -42,7 +41,6 @@
   <servlet-mapping>
   	<servlet-name>List-user</servlet-name>
   	<url-pattern>/list-user</url-pattern>
-  	<url-pattern>/danhsach</url-pattern>
   </servlet-mapping>
   
   
@@ -123,4 +121,19 @@
   <session-config>
   	<session-timeout>1</session-timeout>
   </session-config>
+  
+  
+  <filter>
+  	<filter-name>LoginFilter</filter-name>
+  	<filter-class>com.nguyenconghau.filter.LoginFilter</filter-class>
+  </filter>
+  <!-- <filter-mapping>
+  	<filter-name>LoginFilter</filter-name>
+  	<url-pattern>/list-user</url-pattern>
+  	<url-pattern>/changepass</url-pattern>
+  	<url-pattern>/edit</url-pattern>
+  </filter-mapping> -->
+  
+  
+  
 </web-app>

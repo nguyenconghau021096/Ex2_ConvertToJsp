@@ -38,6 +38,8 @@
                         <th scope="col">Email</th>
                         <th scope="col">Gender</th>
                         <th scope="col">Password</th>
+                        <th scope="col">Delete</th>
+                        <th scope="col">Edit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,8 +49,29 @@
                         <th scope="row"><%=index %></th>
                         <td>${user.username}</td>
                         <td>${user.email}</td>
-                        <td>${user.gender}</td>
+                        <c:choose>
+                        	<c:when test="${user.gender == 0}">
+                        		<td>Nam</td>
+                        	</c:when>
+                        	<c:when test="${user.gender == 1}">
+                        		<td>Nữ</td>
+                        	</c:when>
+                        	<c:otherwise>
+                        		<td>Khác</td>
+                        	</c:otherwise>
+                        </c:choose>
                         <td>${user.password}</td>
+                        <td>
+                        	<a href="${pageContext.request.contextPath}/delete?username=${user.username}"
+                        	onclick="return confirm('Are you sure you want to delete this item?');">
+								<img class="icon" alt="xóa" src="images/delete.png">
+							</a>
+                        </td>
+                        <td>
+                        	<a href="${pageContext.request.contextPath}/edit?username=${user.username}">
+								<img class="icon" alt="xóa" src="images/edit.png">
+							</a>
+                        </td>
                     </tr>
                 	<% index++; %>
                 		

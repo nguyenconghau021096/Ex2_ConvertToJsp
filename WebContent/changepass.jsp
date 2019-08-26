@@ -27,16 +27,16 @@
     </div>
 		
 	<div class="form">
-		<form method="post" action="#">
+		<form method="post" action="/ServlerExercise/changepass">
 			
            
 			<div class="form-group">
-				<label for="pwd">Old password:</label>
-				<input type="password" class="form-control" name="pwd">
+				<label for="password">Old password:</label>
+				<input type="password" class="form-control" name="password">
             </div>
             <div class="form-group">
-                <label for="pwd">New Password:</label>
-                <input type="password" class="form-control" name="pwd1">
+                <label for="newPassword">New Password:</label>
+                <input type="password" class="form-control" name="newPassword">
             </div>
             
 			<div>

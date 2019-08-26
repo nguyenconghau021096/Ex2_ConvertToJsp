@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,33 +13,33 @@ import com.nguyenconghau.jdbc.UserRepository;
 
 import JavaBean.UserBean;
 
-public class RegisterServlet extends HttpServlet{
-	@Override
-	public void init() throws ServletException {
-		System.out.println("RegisterServlet được tạo");
-	}
+@WebServlet("/edit")
+public class EditServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatchet = req.getRequestDispatcher("/register.jsp");
-		dispatchet.forward(req, resp);
+		UserRepository userRepository = new UserRepository();
+		String username = req.getParameter("username");
+		UserBean obj = userRepository.getUser(username);
+		req.setAttribute("username", obj.getUsername());
+		req.setAttribute("password", obj.getPassword());
+		req.setAttribute("gender", obj.getGender());
+		req.setAttribute("email", obj.getEmail());
+		
+		RequestDispatcher rd = req.getRequestDispatcher("/edit.jsp");
+		rd.forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println(req.getParameter("username"));
-		System.out.println(req.getParameter("password"));
-		System.out.println(req.getParameter("email"));
-		System.out.println(req.getParameter("gender"));
-		
+		// TODO Auto-generated method stub
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
+		int gender =  Integer.parseInt(req.getParameter("gender"));
 		String email = req.getParameter("email");
-		int gender = Integer.parseInt(req.getParameter("gender"));
 		
 		UserRepository userRepository = new UserRepository();
-		userRepository.add(new UserBean(username, email, gender, password));
-		
-		resp.sendRedirect("/ServlerExercise/login");
-		
+		int ret = userRepository.change(username, password, gender, email);
+		System.out.println(ret);
+		resp.sendRedirect("/ServlerExercise/list-user");
 	}
 }

@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.nguyenconghau.jdbc.UserRepository;
+
+import JavaBean.UserBean;
+
 public class LoginServlet extends HttpServlet{
 	@Override
 	public void init() throws ServletException {
@@ -32,9 +36,12 @@ public class LoginServlet extends HttpServlet{
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		
-		if (username.equals("nguyenconghau") && password.equals("123456")) {
+		UserRepository userRepository = new UserRepository();
+		UserBean obj = userRepository.login(username, password);
+		if (obj != null) {
 			HttpSession httpSession = req.getSession();
 			httpSession.setAttribute("username", username);
+			
 			resp.sendRedirect("/ServlerExercise/list-user");
 		} else {
 			resp.sendRedirect("/ServlerExercise/login");
